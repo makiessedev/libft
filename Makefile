@@ -3,7 +3,7 @@ CC = gcc
 CFLAGS = -Wall -Wextra -Werror -I.
 RM = rm -rf
 
-C_FILES = ft_isdigit.c ft_isalpha.c ft_isalnum.c
+C_FILES = ft_isdigit.c ft_isalpha.c ft_isalnum.c ft_isascii.c ft_isprint.c ft_strlen.c
 
 OBJ_FILES = $(C_FILES:.c=.o)
 
