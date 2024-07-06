@@ -6,20 +6,20 @@ char	*ft_strnstr(const char *haystack, const char *needle)
 	int	i;
 	int	k;
 
-	needle_len = ft_strlen(needle);	
+	needle_len = ft_strlen(needle);
 	i = 0;
 	k = 0;
 	while (haystack[i])
 	{
 		if (haystack[i] == needle[0])
 		{
-			while(needle[k] && haystack[i] == needle[k])
+			while (needle[k] && haystack[i] == needle[k])
 			{
 				needle_len--;
 				i++;
 				k++;
 			}
-			if(needle_len == 0)
+			if (needle_len == 0)
 			{
 				needle_len = ft_strlen(needle);
 				return ((char *)haystack + i - needle_len);
