@@ -1,6 +1,4 @@
 #include "libft.h"
-#include <string.h>
-#include <stdio.h>
 
 char	*ft_strnstr(const char *haystack, const char *needle)
 {
@@ -31,11 +29,4 @@ char	*ft_strnstr(const char *haystack, const char *needle)
 		i++;
 	}
 	return (NULL);
-}
-
-int 	main(void)
-{
-	printf("%s", ft_strnstr("Makiesse Ambrósio Morais", "e"));
-
-	return (0);
 }
