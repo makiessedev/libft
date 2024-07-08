@@ -2,5 +2,6 @@
 *.out
 *.swo
 *.swp
+*.swn
 *.a
 main.c
