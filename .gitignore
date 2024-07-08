@@ -4,4 +4,6 @@
 *.swp
 *.swn
 *.a
+.nfs*
+
 main.c
