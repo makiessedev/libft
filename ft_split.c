@@ -1,6 +1,7 @@
 #include "libft.h"
+#include <stdio.h>
 
-static int	*ft_newstr_len(char const *s, char c)
+static int	ft_strings_num(char const *s, char c)
 {
 	int	i;
 	int	counter;
@@ -13,7 +14,7 @@ static int	*ft_newstr_len(char const *s, char c)
 			counter++;
 		i++;
 	}
-	return (ft_strlen(s) - counter);
+	return (counter + 1);
 
 }
 
@@ -22,22 +23,46 @@ char	**ft_split(char const *s, char c)
 	int 		i;
 	int		j;
 	int		k;
+	int		count_chr;
+	int		strs_num;
 	char	**newstr;
 
 	i = 0;
 	j = 0;
 	k = 0;
-	newstr = (char **)malloc(ft_newstr_len(s, c) * sizeof(char));
-	while (s[i])
+	count_chr = 0;
+	strs_num = ft_strings_num(s, c);
+	newstr = (char **)malloc(strs_num * sizeof(char *) + 2);
+	if (!newstr)
+		return (NULL);
+	while (s[i] && strs_num > 0)
 	{
 		if (s[i] != c)
-			newstr[j][k] = s[i];
-		else
 		{
-			j++
-			k = 0;
+			while (s[i] && s[i] != c)
+			{
+				count_chr++;
+				i++;
+			}
+			i -= count_chr;
+			newstr[j] = (char *)malloc(count_chr * sizeof(char) + 1);
+			if (!newstr)
+				return (NULL);
+			while (count_chr > 0)
+			{
+				newstr[j][k] = s[i];
+				i++;
+				k++;
+				count_chr--;
+			}
+			newstr[j][k] = '\0';
+			strs_num--;
 		}
+		//printf ("%s-\n", newstr[j]);
 		i++;
+		j++;
+		k = 0;
 	}
+	newstr[j] = '\0';
 	return (newstr);
 }
