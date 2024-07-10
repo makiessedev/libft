@@ -1,8 +1,6 @@
 *.o
 *.out
-*.swo
-*.swp
-*.swn
+*.sw*
 *.a
 .nfs*
 
