@@ -11,8 +11,14 @@ static int	ft_strings_num(char const *s, char c)
 	while (s[i])
 	{
 		if (s[i] == c)
+		{
 			counter++;
-		i++;
+			i++;
+			while (s[i] == c)
+				i++;
+		}
+		else
+			i++;
 	}
 	return (counter + 1);
 
@@ -37,6 +43,8 @@ char	**ft_split(char const *s, char c)
 		return (NULL);
 	while (s[i] && strs_num > 0)
 	{
+		while (s[i] == c)
+			i++;
 		if (s[i] != c)
 		{
 			while (s[i] && s[i] != c)
@@ -58,7 +66,6 @@ char	**ft_split(char const *s, char c)
 			newstr[j][k] = '\0';
 			strs_num--;
 		}
-		//printf ("%s-\n", newstr[j]);
 		i++;
 		j++;
 		k = 0;
