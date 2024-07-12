@@ -1,5 +1,4 @@
 #include "libft.h"
-#include <stdio.h>
 
 static int	ft_strings_num(char const *s, char c)
 {
@@ -22,6 +21,15 @@ static int	ft_strings_num(char const *s, char c)
 	}
 	return (counter + 1);
 
+}
+
+static void	ft_free(char **strs, int i)
+{
+	while (i >= 0)
+	{
+		free(strs[i]);
+		i--;
+	}
 }
 
 char	**ft_split(char const *s, char c)
@@ -55,7 +63,10 @@ char	**ft_split(char const *s, char c)
 			i -= count_chr;
 			newstr[j] = (char *)malloc(count_chr * sizeof(char) + 1);
 			if (!newstr)
+			{
+				ft_free(newstr, j);
 				return (NULL);
+			}
 			while (count_chr > 0)
 			{
 				newstr[j][k] = s[i];
