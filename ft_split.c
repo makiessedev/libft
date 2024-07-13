@@ -23,28 +23,37 @@ static int	ft_strings_num(char const *s, char c)
 
 }
 
+static int	ft_word_size(const char *str, char c, int i)
+{
+	int	counter;
+
+	counter = 0;
+	while (str[i] != c && str[i])
+	{
+		counter++;
+		i++;
+	}
+	return (counter);
+}
+
 static void	ft_free(char **strs, int i)
 {
-	while (i >= 0)
-	{
+	while (i-- > 0)
 		free(strs[i]);
-		i--;
-	}
+	free(strs);
+
 }
 
 char	**ft_split(char const *s, char c)
 {
 	int 		i;
 	int		j;
-	int		k;
-	int		count_chr;
+	int		word_size;
 	int		strs_num;
 	char	**newstr;
 
 	i = 0;
 	j = 0;
-	k = 0;
-	count_chr = 0;
 	strs_num = ft_strings_num(s, c);
 	newstr = (char **)malloc(strs_num * sizeof(char *) + 2);
 	if (!newstr)
@@ -52,34 +61,17 @@ char	**ft_split(char const *s, char c)
 	while (s[i] && strs_num > 0)
 	{
 		while (s[i] == c)
-			i++;
-		if (s[i] != c)
+			i++;	
+		word_size = ft_word_size(s, c, i);
+		newstr[j] = ft_substr(s, i, word_size);
+		if (!newstr[j])
 		{
-			while (s[i] && s[i] != c)
-			{
-				count_chr++;
-				i++;
-			}
-			i -= count_chr;
-			newstr[j] = (char *)malloc(count_chr * sizeof(char) + 1);
-			if (!newstr)
-			{
-				ft_free(newstr, j);
-				return (NULL);
-			}
-			while (count_chr > 0)
-			{
-				newstr[j][k] = s[i];
-				i++;
-				k++;
-				count_chr--;
-			}
-			newstr[j][k] = '\0';
-			strs_num--;
+			ft_free(newstr, j);
+			return (NULL);
 		}
-		i++;
+		i += word_size;
+		strs_num--;
 		j++;
-		k = 0;
 	}
 	newstr[j] = '\0';
 	return (newstr);
