@@ -1,0 +1,41 @@
+#include "libft.h"
+
+static int	ft_digit_numbers(int n)
+{
+	int	counter;
+
+	counter = 0;
+	while (n)
+	{
+		n = n / 10;
+		counter++;
+	}
+	return (counter);
+}
+
+char	*ft_itoa(int n)
+{
+	int		digit_numbers;
+	int		num;
+	char	*str_n;
+
+	if (n == 0)
+		return ("0");
+	digit_numbers = ft_digit_numbers(n);
+	num = n;
+        str_n = malloc((digit_numbers + 1) * sizeof(char));
+	if (n < 0)
+	{
+		num *= -1;
+		digit_numbers++;
+	}
+	str_n[digit_numbers] = '\0';
+	while (digit_numbers--)
+	{
+		str_n[digit_numbers] = num % 10 + '0';
+		num /= 10;
+	}
+	if (n < 0)
+		str_n[0] = '-';
+	return (str_n);
+}
