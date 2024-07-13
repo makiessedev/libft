@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_itoa.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: mmorais <marvin@42.fr>                     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/07/13 07:51:12 by mmorais           #+#    #+#             */
+/*   Updated: 2024/07/13 07:52:14 by mmorais          ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 #include "libft.h"
 
 static int	ft_digit_numbers(int n)
@@ -23,7 +34,7 @@ char	*ft_itoa(int n)
 		return ("0");
 	digit_numbers = ft_digit_numbers(n);
 	num = n;
-        str_n = malloc((digit_numbers + 1) * sizeof(char));
+	str_n = malloc((digit_numbers + 1) * sizeof(char));
 	if (n < 0)
 	{
 		num *= -1;
