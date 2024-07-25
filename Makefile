@@ -12,10 +12,17 @@ C_FILES =	ft_isdigit.c ft_isalpha.c ft_isalnum.c ft_isascii.c ft_isprint.c \
 
 OBJ_FILES = $(C_FILES:.c=.o)
 
+BONUS_FILES =	ft_lstnew.c
+
+BONUS_OBJS = $(BONUS_FILES:.c=.o)
+
 all: $(NAME)
 
 $(NAME): $(OBJ_FILES)
 	ar rcs $(NAME) $(OBJ_FILES)
+
+bonus: $(OBJ_FILES) $(BONUS_OBJS)
+	ar rcs $(NAME) $(OBJ_FILES) $(BONUS_OBJS)
 
 clean:
 	$(RM) $(OBJ_FILES)
