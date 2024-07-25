@@ -12,7 +12,7 @@ C_FILES =	ft_isdigit.c ft_isalpha.c ft_isalnum.c ft_isascii.c ft_isprint.c \
 
 OBJ_FILES = $(C_FILES:.c=.o)
 
-BONUS_FILES =	ft_lstnew.c ft_lstadd_front.c
+BONUS_FILES =	ft_lstnew.c ft_lstadd_front.c ft_lstsize.c
 
 BONUS_OBJS = $(BONUS_FILES:.c=.o)
 
