@@ -6,7 +6,7 @@
 /*   By: mmorais <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 08:41:14 by mmorais           #+#    #+#             */
-/*   Updated: 2024/07/25 01:58:10 by mmorais          ###   ########.fr       */
+/*   Updated: 2024/07/25 02:15:54 by mmorais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef LIBFT_H
@@ -15,6 +15,7 @@
 # include <stddef.h>
 # include <stdlib.h>
 # include <stdint.h>
+# include <unistd.h>
 
 int		ft_isalpha(int c);
 int		ft_isdigit(int c);
