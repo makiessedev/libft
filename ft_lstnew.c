@@ -11,10 +11,3 @@ t_list	*ft_lstnew(void *content)
 	new->next = NULL;
 	return (new);
 }
-
-int	main(void)
-{
-	t_list *new = ft_lstnew("Makiesse");
-	printf("%s", (char *)new->content);
-	return (0);
-}
