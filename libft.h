@@ -6,7 +6,7 @@
 /*   By: mmorais <marvin@42.fr>                     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 08:41:14 by mmorais           #+#    #+#             */
-/*   Updated: 2024/07/25 05:42:04 by mmorais          ###   ########.fr       */
+/*   Updated: 2024/07/25 05:59:58 by mmorais          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #ifndef LIBFT_H
@@ -59,4 +59,5 @@ void	ft_putnbr_fd(int n, int fd);
 t_list	*ft_lstnew(void *content);
 void	ft_lstadd_front(t_list **lst, t_list *new);
 int	ft_lstsize(t_list *lst);
+t_list	*ft_lstlast(t_list *lst);
 #endif
