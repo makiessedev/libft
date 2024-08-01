@@ -2,7 +2,7 @@
 
 Libft (Library of Functions)
 
-## 💡 Made with ❤️, coffee and bugs
+## 💡 Made with ❤️, coffee & bugs
 
 In this project, you will be creating a library of functions, the file structure for this project is the following:
 
